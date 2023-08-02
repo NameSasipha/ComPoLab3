@@ -1,7 +1,7 @@
 import axios from 'axios'
 import type { AxiosInstance, AxiosResponse } from 'axios'
 import type { EventItem } from '@/type'
-import type { promises } from 'dns'
+// import type { promises } from 'dns'
 
 
 const apiClient: AxiosInstance = axios.create({
@@ -14,8 +14,8 @@ const apiClient: AxiosInstance = axios.create({
 })
 
 export default{
-    getEvent(): Promise<AxiosResponse<EventItem[]>>{
-        return apiClient.get<EventItem[]>('/events')
+    getEvent(perPage: number , page: number): Promise<AxiosResponse<EventItem[]>>{
+        return apiClient.get<EventItem[]>('/events?_limit=' + perPage + '&_page=' + page)
     },
     getEventByID(id: number): Promise<AxiosResponse<EventItem>>{
         return apiClient.get<EventItem>('event/'+id.toString())
