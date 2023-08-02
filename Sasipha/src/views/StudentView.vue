@@ -24,3 +24,4 @@ const events: Ref<Array<StudentItem>> = ref([])
   flex-direction: column;
   align-items: center;
 }</style>
+<!-- <style scoped></style> -->

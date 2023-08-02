@@ -6,9 +6,9 @@ import { RouterLink, RouterView } from 'vue-router'
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/category">Category</RouterLink>
-        <RouterLink to="/student">Student</RouterLink>
+        <RouterLink :to="{name: 'EventList'}">Home</RouterLink>
+        <RouterLink :to="{name: 'category'}">Category</RouterLink>
+        <RouterLink :to="{name: 'student'}">Student</RouterLink>
 
       </nav>
         <h1>Events for Good</h1>
