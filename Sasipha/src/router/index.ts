@@ -7,6 +7,7 @@ import EventDetailView from '@/views/event/EventDetailView.vue'
 import EventEditView from '@/views/event/EventEditView.vue'
 import EventRegisterView from '@/views/event/EventRegisterView.vue'
 import EventLayoutViewVue from '@/views/event/EventLayoutView.vue'
+import NetworkErrorView from '@/views/NetworkErrorView.vue'
 import NotFoundview from '@/views/NotFoundView.vue'
 
 const router = createRouter({
@@ -70,7 +71,11 @@ const router = createRouter({
       path: '/:catchAll(.*)',
       name: 'not-found',
       component: NotFoundview
-    },   
+    },{
+      path: '/netwrok-error',
+      name: 'network-error',
+      component: NetworkErrorView
+    }   
 
     
   ]
