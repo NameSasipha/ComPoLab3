@@ -1,23 +1,29 @@
 <script setup lang="ts">
-import {ref} from 'vue'
+// import {ref} from 'vue'
 import {type EventItem} from '@/type'
-import EventService from '@/services/EventService'
-const event = ref<EventItem | null>(null)
-
-const props = defineProps({
-    id: String
+import type { PropType } from 'vue';
+// import EventService from '@/services/EventService'
+// const event = ref<EventItem | null>(null)
+defineProps({
+    event: {
+        type: Object as PropType<EventItem>,
+            require : true
+    }
 })
+// const props = defineProps({
+//     id: String
+// })
 
-EventService.getEventByID(Number(props.id))
-.then((response)=> {
-    event.value = response.data
-})
-    .catch((error) => {
-        console.log(error)
-    })
+// EventService.getEventByID(Number(props.id))
+// .then((response)=> {
+//     event.value = response.data
+// })
+//     .catch((error) => {
+//         console.log(error)
+//     })
 </script>
 
-<template>
+<!-- <template>
     <div v-if ="event">
     <h1>{{ event.title }}</h1>
     <div id="nav">
@@ -27,7 +33,8 @@ EventService.getEventByID(Number(props.id))
         |
         <router-link :to="{name: 'event-edit' , params: {id}}" > Edit </router-link> 
 
-    </div>
+    </div> -->
+    <template>
     <p>Edit the event here</p>
-    </div>
+    <!-- </div> -->
 </template>

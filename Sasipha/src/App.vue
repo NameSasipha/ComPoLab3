@@ -8,7 +8,7 @@ const sizes = ref<number>(2)
   <header>
     <div class="wrapper">
       <nav>
-        <RouterLink :to="{name: 'EventList'}">Home</RouterLink>
+        <RouterLink :to="{name: 'event-list'}">Home</RouterLink>
         <RouterLink :to="{name: 'category'}">Category</RouterLink>
         <RouterLink :to="{name: 'student'}">Student</RouterLink>
 
@@ -17,10 +17,10 @@ const sizes = ref<number>(2)
         <label>  Size : </label>
         <input class="sizes" type="number" v-model="sizes" />
       </div>
-        <RouterView :size="sizes"/>
-        <h1>Events for Good</h1>
     </div>
   </header>
+  <h1>Events for Good</h1>
+  <RouterView :size="sizes"/>
 </template>
 
 <style scoped>

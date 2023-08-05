@@ -3,17 +3,17 @@ import EventListView from '../views/EventListView.vue'
 import AboutView from '../views/AboutView.vue'
 import CategoryView from '../views/CategoryViwe.vue'
 import SudentView from '../views/StudentView.vue'
-import EventDetailView from '../views/event/EventDetailView.vue'
+import EventDetailView from '@/views/event/EventDetailView.vue'
 import EventEditView from '@/views/event/EventEditView.vue'
 import EventRegisterView from '@/views/event/EventRegisterView.vue'
-
+import EventLayoutViewVue from '@/views/event/EventLayoutView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'EventList',
+      name: 'event-list',
       component: EventListView,
       props: (route) => ({page: parseInt(route.query?.page as string || '1')  })
     },
@@ -34,23 +34,32 @@ const router = createRouter({
     },
     {
       path: '/event/:id',
-      name: 'event-detail',
-      component: EventDetailView,
-      props: true
-    },
-    {
-      path: '/event/:id/edit',
-      name: 'event-edit',
+      name: 'event-layout',
+      components: EventLayoutViewVue,
       props: true,
-      component: EventEditView 
-    },
-    {
-      path: '/event/:id/register',
-      name: 'event-register',
-      props: true,
-      component: EventRegisterView 
-    }
+      children: [
+        {
+          path: '',
+          name: 'event-detail',
+          props: true,
+          component: EventDetailView,
+        },
+        {
+          path: 'edit',
+          name: 'event-edit',
+          props: true,
+          component: EventEditView 
+        },
+        {
+          path: 'register',
+          name: 'event-register',
+          props: true,
+          component: EventRegisterView 
 
+        }
+      ]
+    },
+    
 
     
   ]
