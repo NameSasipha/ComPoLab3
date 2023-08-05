@@ -7,6 +7,7 @@ import EventDetailView from '@/views/event/EventDetailView.vue'
 import EventEditView from '@/views/event/EventEditView.vue'
 import EventRegisterView from '@/views/event/EventRegisterView.vue'
 import EventLayoutViewVue from '@/views/event/EventLayoutView.vue'
+import NotFoundview from '@/views/NotFoundView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -35,7 +36,7 @@ const router = createRouter({
     {
       path: '/event/:id',
       name: 'event-layout',
-      components: EventLayoutViewVue,
+      component: EventLayoutViewVue,
       props: true,
       children: [
         {
@@ -59,7 +60,17 @@ const router = createRouter({
         }
       ]
     },
-    
+    {
+      path: '/404/:resource',
+      name: '404-resource',
+      component: NotFoundview,
+      props: true
+    },
+    {
+      path: '/:catchAll(.*)',
+      name: 'not-found',
+      component: NotFoundview
+    },   
 
     
   ]

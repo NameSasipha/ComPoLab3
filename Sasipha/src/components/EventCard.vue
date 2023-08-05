@@ -1,5 +1,5 @@
 <template>
-  <RouterLink class="event-link" :to="{name: 'event-detail', params:{id:event?.id}}">
+  <RouterLink class="event-link" :to="{name: 'event-layout', params:{id:event?.id}}">
     <div class="event-card">
         <span> @{{ event?.time }} on {{ event?.date }} </span>
         <h4>{{ event?.title }}</h4>
